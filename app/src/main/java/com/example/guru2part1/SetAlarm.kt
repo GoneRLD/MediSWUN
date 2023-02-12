@@ -13,13 +13,12 @@ import androidx.appcompat.app.AppCompatActivity
 import java.util.*
 import kotlinx.android.synthetic.main.activity_set_alarm.*
 
-
+var mediname =""//약 이름 저장용
 
 class SetAlarm : AppCompatActivity() {
 
     //필요한 변수들
     var medilist = mutableListOf<String>("인슐린 억제제")//스피너에 넣을 데이터 리스트 생성
-    var mediname =""//약 이름 저장용
 
     var start_cal = Calendar.getInstance()
     var end_cal = Calendar.getInstance()
@@ -71,11 +70,8 @@ class SetAlarm : AppCompatActivity() {
         }
 
 
-        //여기서부터 요소 찾아주고 각 기능 설정해주는 부분
-        //var mediList = findViewById<Spinner>(R.id.mediList)//얘가 객체
-
         //어댑터 생성
-        var adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, medilist)
+        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, medilist)
 
         //어댑터 설정
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -180,7 +176,7 @@ class SetAlarm : AppCompatActivity() {
         medilist.add(medi_Name)//리스트에 추가
 
         //어댑터 생성
-        var adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, medilist)
+        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, medilist)
         //어댑터 설정
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         //어댑터 적용
